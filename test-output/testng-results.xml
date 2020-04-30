@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-04-30T22:22:14 EEST" name="All Test Suite" finished-at="2020-04-30T22:23:30 EEST" duration-ms="75951">
+    <groups>
+    </groups>
+    <test started-at="2020-04-30T22:22:14 EEST" name="C:/Users/Alexandr/IdeaProjects/Homework 6" finished-at="2020-04-30T22:23:30 EEST" duration-ms="75951">
+      <class name="RegistrationTest">
+        <test-method is-config="true" signature="createDriver()[pri:0, instance:RegistrationTest@f4168b8]" started-at="2020-04-30T22:22:14 EEST" name="createDriver" finished-at="2020-04-30T22:22:27 EEST" duration-ms="13176" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="registartionTest()[pri:0, instance:RegistrationTest@f4168b8]" started-at="2020-04-30T22:22:27 EEST" name="registartionTest" finished-at="2020-04-30T22:22:50 EEST" duration-ms="22895" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registartionTest -->
+        <test-method is-config="true" signature="clouseDriver()[pri:0, instance:RegistrationTest@f4168b8]" started-at="2020-04-30T22:22:50 EEST" name="clouseDriver" finished-at="2020-04-30T22:22:51 EEST" duration-ms="747" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clouseDriver -->
+        <test-method is-config="true" signature="createDriver()[pri:0, instance:RegistrationTest@f4168b8]" started-at="2020-04-30T22:22:51 EEST" name="createDriver" finished-at="2020-04-30T22:22:56 EEST" duration-ms="5454" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="testDoubleDate(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:RegistrationTest@f4168b8]" started-at="2020-04-30T22:22:56 EEST" name="testDoubleDate" data-provider="DataProvid" finished-at="2020-04-30T22:23:09 EEST" duration-ms="12416" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Alexandr]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[guru@mail.ru]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Migel]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Migel]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDoubleDate -->
+        <test-method is-config="true" signature="clouseDriver()[pri:0, instance:RegistrationTest@f4168b8]" started-at="2020-04-30T22:23:09 EEST" name="clouseDriver" finished-at="2020-04-30T22:23:10 EEST" duration-ms="632" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clouseDriver -->
+        <test-method is-config="true" signature="createDriver()[pri:0, instance:RegistrationTest@f4168b8]" started-at="2020-04-30T22:23:10 EEST" name="createDriver" finished-at="2020-04-30T22:23:15 EEST" duration-ms="5087" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="testDoubleDate(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:RegistrationTest@f4168b8]" started-at="2020-04-30T22:23:15 EEST" name="testDoubleDate" data-provider="DataProvid" finished-at="2020-04-30T22:23:29 EEST" duration-ms="14418" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Alexey]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[guru@mail.ru]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Alexey]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Alexey]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDoubleDate -->
+        <test-method is-config="true" signature="clouseDriver()[pri:0, instance:RegistrationTest@f4168b8]" started-at="2020-04-30T22:23:29 EEST" name="clouseDriver" finished-at="2020-04-30T22:23:30 EEST" duration-ms="774" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clouseDriver -->
+      </class> <!-- RegistrationTest -->
+    </test> <!-- C:/Users/Alexandr/IdeaProjects/Homework 6 -->
+  </suite> <!-- All Test Suite -->
+</testng-results>
