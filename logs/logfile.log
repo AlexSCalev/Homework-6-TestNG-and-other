@@ -1,0 +1,5 @@
+
+INFO  | 2020-05-01 17:27:57 | [main] HomePageTest (HomePageTest.java:33) - ButtonWorked
+INFO  | 2020-05-01 17:37:53 | [main] HomePageTest (HomePageTest.java:33) - ButtonWorked BMW
+INFO  | 2020-05-01 17:38:14 | [main] HomePageTest (HomePageTest.java:59) - Link worked Sign In
+INFO  | 2020-05-01 17:38:32 | [main] HomePageTest (HomePageTest.java:46) - ButtonWorked is Benz selected

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [All Test Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="C:/Users/Alexandr/IdeaProjects/Homework 6(failed)">
+    <classes>
+      <class name="RegistrationTest">
+        <methods>
+          <include name="clouseDriver"/>
+          <include name="testDoubleDate" invocation-numbers="0 1"/>
+          <include name="regTest"/>
+          <include name="createDriver"/>
+        </methods>
+      </class> <!-- RegistrationTest -->
+    </classes>
+  </test> <!-- C:/Users/Alexandr/IdeaProjects/Homework 6(failed) -->
+</suite> <!-- Failed suite [All Test Suite] -->

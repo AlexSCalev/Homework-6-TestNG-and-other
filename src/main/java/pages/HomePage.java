@@ -1,15 +1,33 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 
 public class HomePage {
     WebDriver driver;
     WebElement radioButton;
     WebElement selectList;
-    WebElement eneterBar;
-    public void HomePage(WebDriver driver){
+    WebElement sigInElement;
+
+    public HomePage(WebDriver driver) throws IOException {
+        FileReader file = new FileReader("C:\\Users\\Alexandr\\IdeaProjects\\Homework 6\\src\\ data.properties");
+        Properties readProp = new Properties();
+        readProp.load(file);
         this.driver = driver;
+        this.driver.get(readProp.getProperty("url0"));
+        radioButton=driver.findElement(By.id("bmwradio"));
+        selectList=driver.findElement(By.id("carselect"));
+        sigInElement=driver.findElement(By.id("header-sign-up-btn"));
+    }
+
+    public WebDriver getDriver() {
+        return driver;
     }
 
     public WebElement getRadioButton() {
@@ -28,12 +46,11 @@ public class HomePage {
         this.selectList = selectList;
     }
 
-    public WebElement getEneterBar() {
-        return eneterBar;
+    public WebElement getSigInElement() {
+        return sigInElement;
     }
 
-    public void setEneterBar(WebElement eneterBar) {
-        this.eneterBar = eneterBar;
+    public void setSigInElement(WebElement sigInElement) {
+        this.sigInElement = sigInElement;
     }
-
 }

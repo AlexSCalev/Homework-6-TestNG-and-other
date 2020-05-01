@@ -1,83 +1,110 @@
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import pages.RegistrationPage;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Properties;
+
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
 
 public class RegistrationTest extends BaseClasss {
 
     WebDriver driver;
+    RegistrationPage reg;
 
     @BeforeMethod
     public void createDriver() throws IOException {
-      driver = super.getDriver();
+        reg = new RegistrationPage(super.getDriver());
+        this.driver = reg.getDriver();
     }
 
     @AfterMethod
     public void clouseDriver(){
         driver.close();
     }
+
     @Test
-    public void registartionTest() throws IOException {
-        FileReader file = new FileReader("C:\\Users\\Alexandr\\IdeaProjects\\Homework 6\\src\\ data.properties");
-        Properties date = new Properties();
-        date.load(file);
-        String registrationPage = date.getProperty("url1");
-        driver.get(registrationPage);
-
-       WebElement fullName = driver.findElement(By.xpath("//input[@name='user[name]']"));
-       WebElement emailAdress = driver.findElement(By.xpath("//input[@name='user[email]']"));
-       WebElement password = driver.findElement(By.xpath("//input[@name='user[password]']"));
-       WebElement confirmPassword = driver.findElement(By.xpath("//input[@name='user[password]']"));
-       WebElement checkBox0 = driver.findElement(By.id("user_unsubscribe_from_marketing_emails"));
-       WebElement checBox1 = driver.findElement(By.id("user_agreed_to_terms"));
-       WebElement signIn = driver.findElement(By.xpath("//input[@name='commit']"));
-
-       fullName.sendKeys("Alexandr");
-       emailAdress.sendKeys("guru@mail.ru");
-       password.sendKeys("Migel");
-       confirmPassword.sendKeys("Migel");
-       checkBox0.click();
-       checBox1.click();
-       signIn.click();
+    public void regTest() throws IOException {
+        reg.getDriver().manage().window().maximize();
+        reg.getFullName().sendKeys("Migels");
+        reg.getEmailAdress().sendKeys("Migels@gimao.com");
+        reg.getPassword().sendKeys("Migel1234");
+        reg.getConfirmPassword().sendKeys("Migel1234");
+        reg.getCheckBox0().click();
+        reg.getChecBox1().click();
+        reg.getSignIn().submit();
+        Assert.assertEquals(reg.getDriver().getCurrentUrl(),"https://learn.letskodeit.com/");
 
     }
 
     @DataProvider(name = "DataProvid")
     public Object[][] dataPoviderMethod(){
-        return new Object[][] { { "Alexandr","guru@mail.ru","Migel","Migel" }, {  "Alexey","guru@mail.ru","Alexey","Alexey" } };
+        return new Object[][] { { "Carl","guru@mail.ru","Migel5678","Migel5678" }, {  "Alexey","misaSupa@gmail.com","Alexey1234","Alexey1234" } };
     }
 
     @Test(dataProvider = "DataProvid")
-    public void testDoubleDate(String fullNamee,String emaile,String passworde,String confirmPassWorde) throws IOException, InterruptedException {
-        FileReader file = new FileReader("C:\\Users\\Alexandr\\IdeaProjects\\Homework 6\\src\\ data.properties");
-        Properties date = new Properties();
-        date.load(file);
-        String registrationPage = date.getProperty("url1");
-        driver.get(registrationPage);
-
-        WebElement fullName = driver.findElement(By.xpath("//input[@name='user[name]']"));
-        WebElement emailAdress = driver.findElement(By.xpath("//input[@name='user[email]']"));
-        WebElement password = driver.findElement(By.xpath("//input[@name='user[password]']"));
-        WebElement confirmPassword = driver.findElement(By.xpath("//input[@name='user[password]']"));
-        WebElement checkBox0 = driver.findElement(By.id("user_unsubscribe_from_marketing_emails"));
-        WebElement checBox1 = driver.findElement(By.id("user_agreed_to_terms"));
-        WebElement signIn = driver.findElement(By.xpath("//input[@name='commit']"));
-
-        fullName.sendKeys(fullNamee);
-        emailAdress.sendKeys(emaile);
-        password.sendKeys(passworde);
-        confirmPassword.sendKeys(confirmPassWorde);
-        checkBox0.click();
-        checBox1.click();
-        signIn.click();
-//        new Thread().wait(2000);
+    public void testDoubleDate(String fullName,String email,String password,String confirmPassWord){
+        reg.getDriver().manage().window().maximize();
+        reg.getFullName().sendKeys(fullName);
+        reg.getEmailAdress().sendKeys(email);
+        reg.getPassword().sendKeys(password);
+        reg.getConfirmPassword().sendKeys(confirmPassWord);
+        reg.getCheckBox0().click();
+        reg.getChecBox1().click();
+        reg.getSignIn().submit();
+        Assert.assertEquals(reg.getDriver().getCurrentUrl(),"https://learn.letskodeit.com/");
     }
+
+//    Test date only Excel Provide
+    @Test(dataProvider = "Excel")
+    public void testExcel(String fullName,String email,String password,String confirmPassword){
+        reg.getDriver().manage().window().maximize();
+        reg.getFullName().sendKeys(fullName);
+        reg.getEmailAdress().sendKeys(email);
+        reg.getPassword().sendKeys(password);
+        reg.getConfirmPassword().sendKeys(confirmPassword);
+        reg.getCheckBox0().click();
+        reg.getChecBox1().click();
+        reg.getSignIn().submit();
+        Assert.assertEquals(reg.getDriver().getCurrentUrl(),"https://learn.letskodeit.com/");
+    }
+
+    @DataProvider(name = "Excel")
+    public Object[][] getDate(){
+        Object[][]arrayObject = getDateExcel("C:\\Users\\Alexandr\\IdeaProjects\\Homework 6\\Book1.xls","Лист1");
+        return arrayObject;
+    }
+
+    public String[][]getDateExcel(String fileName,String sheetName){
+        String[][]date=null;
+        try {
+            FileInputStream fs = new FileInputStream(fileName);
+            Workbook wb = Workbook.getWorkbook(fs);
+            Sheet sh = wb.getSheet(sheetName);
+
+            int totalNoCols = sh.getColumns();
+            int totalNoRows = sh.getRows();
+
+            date = new String[totalNoRows-1][totalNoCols];
+
+            for(int i = 1;i<totalNoRows;i++){
+                for(int j=0;j<totalNoCols;j++){
+                    date[i-1][j]=sh.getCell(j,i).getContents();
+                }
+            }
+
+        } catch (IOException | BiffException e) {
+            e.printStackTrace();
+        }
+
+        return date;
+    }
+
 }
+
