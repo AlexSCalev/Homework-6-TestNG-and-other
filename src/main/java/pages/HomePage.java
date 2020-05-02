@@ -3,8 +3,6 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
@@ -21,9 +19,10 @@ public class HomePage {
         readProp.load(file);
         this.driver = driver;
         this.driver.get(readProp.getProperty("url0"));
+
         radioButton=driver.findElement(By.id("bmwradio"));
         selectList=driver.findElement(By.id("carselect"));
-        sigInElement=driver.findElement(By.id("header-sign-up-btn"));
+        sigInElement = driver.findElement(By.id("openwindow"));
     }
 
     public WebDriver getDriver() {

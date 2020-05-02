@@ -10,6 +10,15 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class RegistrationPage  {
+    WebDriver driver;
+    WebElement fullName ;
+    WebElement emailAdress;
+    WebElement password ;
+    WebElement confirmPassword;
+    WebElement checkBox0;
+    WebElement checBox1;
+    WebElement signIn;
+
     public RegistrationPage(WebDriver driver) throws IOException {
         FileReader file = new FileReader("C:\\Users\\Alexandr\\IdeaProjects\\Homework 6\\src\\ data.properties");
         Properties readProp = new Properties();
@@ -29,14 +38,7 @@ public class RegistrationPage  {
         return driver;
     }
 
-    WebDriver driver;
-    WebElement fullName ;
-    WebElement emailAdress;
-    WebElement password ;
-    WebElement confirmPassword;
-    WebElement checkBox0;
-    WebElement checBox1;
-    WebElement signIn;
+
 
 
     public WebElement getFullName() {

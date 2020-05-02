@@ -22,11 +22,18 @@ public class HomePageTest extends BaseClasss {
     public  void clouseDriver(){
         page.getDriver().close();
     }
+// Automatica start failure test
+//    @Test(retryAnalyzer = MyRetry.class)
+//    public void failureTest(){
+//        System.out.println("Failure");
+//        Assert.fail();
+//    }
 
     @Test
     public void testDefaultRadioButton(){
         page.getDriver().manage().window().maximize();
         page.getRadioButton().click();
+
         if(!page.getRadioButton().isSelected()){
             logger.error("Button BMW isn`t selected");
         }else{
